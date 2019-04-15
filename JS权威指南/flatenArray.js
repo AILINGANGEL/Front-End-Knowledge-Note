@@ -23,7 +23,7 @@ let test = [1, 2, 3, ['a', ['b', 'c']]];
 
 //方法三 利用reduce函数
 function flatenArray(arr) {
- return arr.reduce((ans,item)=> Array.isArray(item)? ans.concat(flatenArray(item)) : ans.concat(item), []);
+    return arr.reduce((ans, item) => Array.isArray(item) ? ans.concat(flatenArray(item)) : ans.concat(item), []);
 }
 
 console.log(flatenArray(test));
