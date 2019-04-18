@@ -10,14 +10,17 @@ console.log(a.isPrototypeOf(b));
 
 
 // p122
-function inherit(p) {
-    if(p === null) throw TypeError();
-    if(Object.create) {
+function inherit(p, o) {
+    if (p === null) throw TypeError();
+    if (Object.create) {
         return Object.create(p);
     }
     let type = typeof p;
-    if(type !== 'object' && type !== 'function') throw TypeError();
-    function F(){};
+    if (type !== 'object' && type !== 'function') throw TypeError();
+
+    function F() {};
     F.prototype = p;
-    return new F();
+    let target = new F();
+    Object.defineProperties(target, o);
+    return target;
 }
