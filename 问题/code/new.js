@@ -1,9 +1,9 @@
 function _new(func) {
-    let target = {};
-    target.__proto__ = func.prototype;
-    let ans = func.call(target);
-    if (typeof ans === 'object' || typeof ans === 'function') {
-        return ans;
+    return function() {
+        let args = Array.prototype.slice.call(arguments);
+        let target = Object.create(func.prototype);
+        let res = func.apply(target, args);
+        if (typeof res === 'object' || typeof res === 'function') return res;
+        return target;
     }
-    return target;
 }
