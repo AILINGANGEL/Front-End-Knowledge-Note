@@ -7,3 +7,13 @@ function _new(func) {
         return target;
     }
 }
+
+
+function test() {
+    this.a = 123;
+    return function() {
+        console.log('test');
+    }
+}
+
+console.log(new test()); // 输出的是function

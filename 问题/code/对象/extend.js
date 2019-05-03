@@ -1,7 +1,6 @@
-
 // p130 and p182
 function extend(o, p) {
-    for(let prop in p){
+    for (let prop in p) {
         o[prop] = p[prop];
     }
     return o;

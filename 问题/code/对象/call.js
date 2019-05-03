@@ -15,7 +15,6 @@ var foo = {
 var name = 'Chirs';
 
 function bar(job, age) {
-    console.log(this.name);
     console.log(job, age);
 }
 
