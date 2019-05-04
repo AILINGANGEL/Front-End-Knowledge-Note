@@ -139,5 +139,18 @@ console.log(bar);
 // 第二十一题:
 console.log('****************');
 console.log([1, 2, 3].map(parseInt)) // [1, NAN, NAN]
-// 第二十题:
+// 第二十题: (a == 1 && a == 2 && a==3)在什么情况下返回true
 console.log('****************');
+var a = {
+    //或者valueOf
+    [Symbol.toPrimitive]: (function() {
+        var i = 1;
+        return function() {
+            return i++;
+        }
+    })()
+}
+
+if (a == 1 && a == 2 && a == 3) {
+    console.log('binggo')
+}
