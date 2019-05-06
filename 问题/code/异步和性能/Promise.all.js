@@ -1,7 +1,4 @@
 Promise.all = function(promises) {
-    if (typeof promises[Symbol.iterator] !== 'function') {
-        Promise.reject('args is not iterable');
-    }
     return new Promise((resolve, reject) => {
         if (promises.length > 0) {
             let res = [];
@@ -31,7 +28,7 @@ Promise.all = function(promises) {
 Promise.all([
     new Promise((resolve, reject) => { setTimeout(() => { resolve(100) }, 1000) }),
     new Promise((resolve, reject) => { setTimeout(() => { resolve(200) }, 200) }),
-    new Promise((resolve, reject) => { setTimeout(() => { reject(100) }, 100) })
+    new Promise((resolve, reject) => { setTimeout(() => { resolve(150) }, 100) })
 ]).then((data) => {
     console.log(data);
 }, (err) => {
