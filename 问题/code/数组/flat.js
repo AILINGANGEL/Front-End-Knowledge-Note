@@ -4,7 +4,7 @@ function flat(arr, ans) {
     if (!Array.isArray(arr)) {
         throw TypeError();
     }
-    for (item of arr) {
+    for (let item of arr) {
         if (Array.isArray(item)) {
             flat(item, ans);
         } else {
